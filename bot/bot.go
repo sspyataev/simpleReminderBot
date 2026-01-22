@@ -5,20 +5,13 @@ import (
 	"log"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
-	"github.com/joho/godotenv"
 )
 
 func CreateBot() {
-	// подгружаем .env
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Ошибка загрузки .env файла")
-	}
-
-	// считываем токен из .env
+	// считываем токен
 	token := os.Getenv("BOT_TOKEN")
 	if token == "" {
-		log.Fatal("Токен BOT_TOKEN не найден в .env")
+		log.Fatal("Токен BOT_TOKEN не найден")
 	}
 
 	// создаем бота
